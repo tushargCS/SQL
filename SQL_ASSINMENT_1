@@ -1,0 +1,29 @@
+show databases;
+create database company;
+use company;
+create table customer(
+    customer_name varchar(35),
+    customer_id int,
+    primary key(customer_id)
+); 
+
+insert into customer values ('tushar',1),
+('mohit',2),
+('rohit',3);
+
+select * from customer;
+
+create table customer_order(
+  customer_id int ,
+  order_total int,
+  order_id int,
+  primary key(order_id),
+  foreign key(customer_id) references customer(customer_id) 
+);
+
+insert into customer_order values (2,200,23),
+(1,100,25);
+
+select * from customer_order;
+
+select c.customer_name,c.customer_id,co.order_id,co.order_total from customer as c inner join customer_order as co using(customer_id);
