@@ -1,0 +1,36 @@
+drop table personal_info;
+
+create table personal_info(
+Name varchar(45),
+age int,
+gender varchar(10),
+address varchar(100),
+phone_no int,
+primary key(age)
+);
+
+insert into personal_info values("John Doe",35,"Male","123 Main St",555),
+("Jane Smith",28,"Female","456 Park Ave",555),
+("Bob Johnson",42,"Male","789 Elm St",557),
+("Samantha Williams",31,"Female","321 Oak St",5558),
+("Michael Brown",25	,"Male","159 Pine St",5559),
+("Emily Davis",22,"Female","753 Cedar St",5560),
+("Joshua Garcia",32,"Male","987 Birch St",5561),
+("Ashley Martinez",	24,	"Female","654 Spruce St",5562),
+("David Anderson",40,"Male","135 Maple St",5563),
+("Stephanie Thomas"	,27,"Female","246 Willow St",5564);
+
+select * from personal_info;
+
+update personal_info SET gender="male" where age=27;
+
+delete from personal_info where age=27;
+
+
+
+
+
+
+
+
+
