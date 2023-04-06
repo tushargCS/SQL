@@ -1,0 +1,40 @@
+-- Create Database command
+create database campusx;
+
+--Use DataBase command
+use campusx;
+
+--create Table command
+create table emp (
+		id integer(10),
+        emp_name varchar(50),
+        dept varchar(50),
+        salary int(10)
+);
+
+--Insert Record in Table
+insert into emp values
+(1,'raj','cs',1300),
+(2,'arjun','cs',1500),
+(3,'mohit','ec',3200),
+(4,'aman','commerce',1300),
+(5,'varun','electrical',3400);
+
+--Fatch all record from table
+select * from emp;
+
+--Second Highest salary from all record
+select emp_name from emp where salary =
+(select max(salary) from emp where salary <> (select max(salary) from emp));
+
+--all department having no of employees less then 2 
+select dept,count(*) as Employees from emp group by dept having count(*)<2;
+
+--Depatment Wise High Salary
+select * from emp as t1 where salary = (select max(salary) from emp as t2 where t1.dept = t2.dept) order by salary;
+
+--nth Highest salary 
+select * from emp e1 where n-1  = (select count(distinct(salary)) from emp e2 where e2.salary > e1.salary  );
+
+--all record order by salary
+select * from emp order by salary desc; 
